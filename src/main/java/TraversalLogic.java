@@ -2,12 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Utility class contains the logic for traversing array
+ * Utility class contains the logic for traversing matrix
  */
 public class TraversalLogic {
 
-    public List<Integer> result = new ArrayList<>();
-    public int[][] matrix;
+    private List<Integer> result = new ArrayList<>();
+    private int[][] matrix;
 
     public TraversalLogic(int[][] matrix) {
         this.matrix = matrix;
@@ -18,7 +18,7 @@ public class TraversalLogic {
      *
      * @return List with the elements of 2D array in a specific order
      */
-    public List<Integer> traverseArray() {
+    public List<Integer> traverseMatrix() {
 
         if(matrix.length == 0) {
             return new ArrayList<>();
@@ -43,7 +43,7 @@ public class TraversalLogic {
             }
             colEnd--;
 
-            // If it is not a column matrix then the below code gets executed
+            // If it is a row matrix then the below code does not get executed
             if (rowBegin <= rowEnd) {
                 for (int i = colEnd; i >= colBegin; i--) {
                     result.add(matrix[rowEnd][i]);
@@ -51,7 +51,7 @@ public class TraversalLogic {
             }
             rowEnd--;
 
-            // If it is not a row matrix then the below code gets executed
+            // If it is a column matrix then the below code does not get executed
             if (colBegin <= colEnd) {
                 for (int i = rowEnd; i >= rowBegin; i--) {
                     result.add(matrix[i][colBegin]);
